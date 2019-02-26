@@ -33,4 +33,12 @@
 		# Mostramos los datos por pantalla
 		echo json_encode($api);
 	}
+	
+	# Obtenemos todos los usuarios registrados
+	else{
+		$api = usuarios::getAll();
+		# Mostramos los datos por pantalla
+		echo json_encode($api);
+	}
+		
 ?>

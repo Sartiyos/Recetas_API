@@ -154,5 +154,27 @@ class usuarios {
 			
 
     } #-------------------------------------------------------------------
+	
+	# Método para obtener username, longitud, latitud, telefono y email
+    public static function getAll() {
+
+        # Creamos la consulta
+        $consulta = "SELECT username, longitud, latitud, telefono, email FROM usuarios";
+
+        try {
+
+            # Creamos la conexión
+            $comando = database::getDb() -> prepare($consulta);
+
+            # Ejecutamos la sentencia preparada
+            $comando->execute();
+			
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+			
+
+        } catch (PDOEXception $e) {
+            return false;
+        }
+    } #-------------------------------------------------------------------
 }
 ?>
